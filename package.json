@@ -4,5 +4,23 @@
   "private": true,
   "workspaces": [
     "packages/*"
-  ]
+  ],
+  "scripts": {
+    "install:all": "npm install && npm install --workspace=packages/backend && npm install --workspace=packages/frontend",
+    "dev": "concurrently \"npm run start:dev --workspace=packages/backend\" \"npm run start:dev --workspace=packages/frontend\"",
+    "qa": "concurrently \"npm run start:qa --workspace=packages/backend\" \"npm run start:qa --workspace=packages/frontend\"",
+    "prod": "concurrently \"npm run start:prod --workspace=packages/backend\" \"npm run start:prod --workspace=packages/frontend\"",
+    "build:dev": "npm run build:dev --workspace=packages/frontend",
+    "build:qa": "npm run build:qa --workspace=packages/frontend",
+    "build:prod": "npm run build:prod --workspace=packages/frontend",
+    "start:backend:dev": "npm run start:dev --workspace=packages/backend",
+    "start:backend:qa": "npm run start:qa --workspace=packages/backend",
+    "start:backend:prod": "npm run start:prod --workspace=packages/backend",
+    "start:frontend:dev": "npm run start:dev --workspace=packages/frontend",
+    "start:frontend:qa": "npm run start:qa --workspace=packages/frontend",
+    "start:frontend:prod": "npm run start:prod --workspace=packages/frontend"
+  },
+  "devDependencies": {
+    "concurrently": "^7.6.0"
+  }
 }

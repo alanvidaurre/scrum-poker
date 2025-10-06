@@ -6,11 +6,17 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-scripts": "^5.0.1",
-    "socket.io-client": "^4.7.2"
+    "socket.io-client": "^4.8.1"
   },
   "scripts": {
-    "start": "cross-env PORT=3030 react-scripts start",
+    "start": "npm run start:dev",
+    "start:dev": "cross-env REACT_APP_ENV=development PORT=3030 react-scripts start",
+    "start:qa": "cross-env REACT_APP_ENV=qa PORT=3030 react-scripts start",
+    "start:prod": "cross-env REACT_APP_ENV=production PORT=3030 react-scripts start",
     "build": "react-scripts build",
+    "build:dev": "cross-env REACT_APP_ENV=development react-scripts build",
+    "build:qa": "cross-env REACT_APP_ENV=qa react-scripts build", 
+    "build:prod": "cross-env REACT_APP_ENV=production react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
